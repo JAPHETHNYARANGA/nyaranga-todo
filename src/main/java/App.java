@@ -22,8 +22,11 @@ public class App {
     public static void main(String[] args) { //type “psvm + tab” to autocreate this
         port(getHerokuAssignedPort());
         staticFileLocation("/public");
-        String connectionString = "jdbc:postgresql://localhost:5432/todolist";;
-        Sql2o sql2o = new Sql2o(connectionString, "japhethnyaranga", "34120648");
+        String connectionString = "jdbc:postgresql://\n" +
+                "ec2-18-214-238-28.compute-1.amazonaws.com/\n" +
+                "dc4opuv5shfrd2";;
+        Sql2o sql2o = new Sql2o(connectionString, "\n" +
+                "agcjnovzvkakdf", "f6b4d94d5359454b0cb8f94262cf3a55b8baf2a0661a3e3dae021ad65e97bc5a");
         Sql2oTaskDao taskDao = new Sql2oTaskDao(sql2o);
         Sql2oCategoryDao categoryDao = new Sql2oCategoryDao(sql2o);
 
